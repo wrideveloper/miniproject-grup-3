@@ -1,3 +1,4 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:listview/Screen/Home_screen.dart';
 
@@ -23,6 +24,16 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.red,
         ),
-        home: HomeScreen());
+        home: AnimatedSplashScreen(
+            backgroundColor: Colors.red,
+            duration: 1500,
+            splash: Text(
+              'info kuliner',
+              style: Theme.of(context).textTheme.headline4!.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
+            nextScreen: HomeScreen()));
   }
 }
