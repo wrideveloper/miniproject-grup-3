@@ -13,12 +13,13 @@ class HomeScreen extends StatelessWidget {
     foodList = [
       FoodItems(
           title: 'Soto',
-          deskripsi: 'Soto bu karto',
+          deskripsi:
+              'Soto adalah sup tradisional Indonesia yang terutama terdiri dari kaldu, daging, dan sayuran. Banyak sup tradisional disebut soto, sedangkan sup yang dipengaruhi asing dan Barat disebut sop. ',
           mainphoto: 'images/soto.jpg',
           photos: [
-            'https://cdn-2.tstatic.net/tribunnews/foto/bank/images/bakso-sapi-kuah-1.jpg',
-            'https://cdn-2.tstatic.net/tribunnews/foto/bank/images/bakso-sapi-kuah-1.jpg',
-            'https://cdn-2.tstatic.net/tribunnews/foto/bank/images/bakso-sapi-kuah-1.jpg',
+            'https://cdn1.katadata.co.id/media/images/thumb/2021/11/11/Soto_Ayam-2021_11_11-16_34_42_5f526ac236adec3bcaa4bae05a665afa_620x413_thumb.jpg',
+            'https://images.aws.nestle.recipes/resized/70b59c146daff9caf53baa4f2f880fce_Soto_Kudus_1500_700.jpg',
+            'https://cdn.idntimes.com/content-images/post/20210908/188633896-1148280012336577-1077197520471515984-n-b668cfe82cd31976759899a2c698cc79_600x400.jpg',
           ]),
       FoodItems(
           title: 'Nasi Goreng',
@@ -36,9 +37,9 @@ class HomeScreen extends StatelessWidget {
               'Rendang atau randang adalah masakan daging asli Indonesia yang berasal dari Minangkabau. Masakan ini dihasilkan dari proses memasak suhu rendah dalam waktu lama menggunakan aneka rempah-rempah dan santan.',
           mainphoto: 'images/rendang3.jpg',
           photos: [
-            'images/rendang2.jpg',
-            'images/rendang3.jpg',
-            'images/rendang4.jpg',
+            'https://cdn-2.tstatic.net/tribunnews/foto/bank/images/resep-rendang.jpg',
+            'https://www.dapurkintamani.com/wp-content/uploads/2021/05/rendang-daging-empuk.jpg',
+            'https://cdn0-production-images-kly.akamaized.net/rM3_abtBi9tM8MD50EuU_Fvp0OM=/1x112:1000x675/469x260/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3245094/original/043061400_1600750232-shutterstock_1786027046.jpg',
           ]),
       FoodItems(
           title: 'Bakso',
@@ -47,8 +48,8 @@ class HomeScreen extends StatelessWidget {
           mainphoto: 'images/bakso.jpg',
           photos: [
             'https://cdn-2.tstatic.net/tribunnews/foto/bank/images/bakso-sapi-kuah-1.jpg',
-            'https://cdn-2.tstatic.net/tribunnews/foto/bank/images/bakso-sapi-kuah-1.jpg',
-            'https://cdn-2.tstatic.net/tribunnews/foto/bank/images/bakso-sapi-kuah-1.jpg',
+            'https://mmc.tirto.id/image/otf/700x0/2019/07/13/bakso-istockphoto-copy_ratio-16x9.jpg',
+            'https://asset-a.grid.id//crop/0x0:0x0/700x465/photo/2020/12/15/2323505669.jpg',
           ]),
     ];
     foodNames = foodList.map((e) => e.title).toList();
@@ -101,8 +102,12 @@ class HomeScreen extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius:
                           BorderRadius.vertical(top: Radius.circular(8)),
-                      child: Image.asset(
-                        foodData.mainphoto,
+                      child: Container(
+                        width: double.infinity,
+                        child: Image.asset(
+                          foodData.mainphoto,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                     tag: foodData.title,

@@ -1,5 +1,7 @@
 // ignore_for_file: file_names
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:listview/Object.dart';
 
@@ -16,22 +18,28 @@ class DetailScreen extends StatelessWidget {
         child: Column(
           children: [
             Hero(
-              child: Image.asset(
-                items.mainphoto,
+              child: Container(
                 width: double.infinity,
+                height: 200,
+                child: Image.asset(
+                  items.mainphoto,
+                  fit: BoxFit.cover,
+                ),
               ),
               tag: items.title,
             ),
             Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16), color: Colors.white),
+              padding: EdgeInsets.only(top: 16),
               child: Column(
                 children: [
                   Text(
                     items.title,
                     style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                   ),
-                  Text(items.deskripsi),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(items.deskripsi),
+                  ),
                   Container(
                     height: 150,
                     child: ListView(
